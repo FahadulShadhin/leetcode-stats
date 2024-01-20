@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from routes import routes
 
 app = FastAPI()
 
-
-@app.get('/')
-async def root():
-    return {'message': 'Hello leetcode stats api!'}
+app.include_router(routes.router)
