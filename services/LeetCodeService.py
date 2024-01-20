@@ -34,8 +34,11 @@ class LeetCodeGraphQLClient:
         '''
         variables = {'username': leetcode_username}
 
-        response = self.send_graphql_request(query, variables)
-        return response.json()
+        try:
+            response = self.send_graphql_request(query, variables)
+            return response.json()
+        except requests.exceptions.JSONDecodeError:
+            return None
 
     def language_stats(self, leetcode_username: str):
         query = '''
@@ -50,8 +53,11 @@ class LeetCodeGraphQLClient:
         '''
         variables = {'username': leetcode_username}
 
-        response = self.send_graphql_request(query, variables)
-        return response.json()
+        try:
+            response = self.send_graphql_request(query, variables)
+            return response.json()
+        except requests.exceptions.JSONDecodeError:
+            return None
 
     def public_profile(self, leetcode_username: str):
         query = '''
@@ -67,8 +73,11 @@ class LeetCodeGraphQLClient:
         '''
         variables = {'username': leetcode_username}
 
-        response = self.send_graphql_request(query, variables)
-        return response.json()
+        try:
+            response = self.send_graphql_request(query, variables)
+            return response.json()
+        except requests.exceptions.JSONDecodeError:
+            return None
 
     def contest_ranking(self, leetcode_username: str):
         query = '''
@@ -87,5 +96,8 @@ class LeetCodeGraphQLClient:
         '''
         variables = {'username': leetcode_username}
 
-        response = self.send_graphql_request(query, variables)
-        return response.json()
+        try:
+            response = self.send_graphql_request(query, variables)
+            return response.json()
+        except requests.exceptions.JSONDecodeError:
+            return None
