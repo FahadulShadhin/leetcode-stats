@@ -29,6 +29,13 @@ def get_user_stats_controller(leetcode_username: str):
 
     stats = stats_service.construct_user_stats()
 
+    if not stats:
+        return JSONResponse(
+            content={'status': 'Not found',
+                     'message': f"{leetcode_username} doesn't exist!"},
+            status_code=404,
+        )
+
     return JSONResponse(
         content={'status': 'Success',
                  'message': f'{leetcode_username} found', 'data': stats},
