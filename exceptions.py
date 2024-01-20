@@ -1,0 +1,3 @@
+
+class GraphqlException(Exception):
+    pass
