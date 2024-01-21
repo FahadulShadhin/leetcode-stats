@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from routes import routes
-from config import Config
+from config.db import DBConfig
 
-config = Config()
-config.connectDB()
+db_config = DBConfig()
+db_config.connect_db()
 
 app = FastAPI()
 

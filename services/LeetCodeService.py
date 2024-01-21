@@ -1,15 +1,14 @@
 import requests
 import os
 from dotenv import load_dotenv
-from config import Config
+from config.variables import Variables
 
 
 class LeetCodeGraphQLClient:
     def __init__(self):
         load_dotenv()
-        self.config = Config()
-        self.variables = self.config.variables()
-        self.url = self.variables['leetCodeGraphqlEndpoint']
+        self.variables = Variables()
+        self.url = self.variables.leetCodeGraphqlEndpoint
 
     def send_graphql_request(self, query: str, variables: dict):
         return requests.post(self.url, json={'query': query, 'variables': variables})
