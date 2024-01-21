@@ -45,6 +45,8 @@ def get_user_stats_controller(leetcode_username: str):
             status_code=404,
         )
 
+    stats_service.save_user_stats()
+
     return JSONResponse(
         content={'status': 'Success',
                  'message': f'{leetcode_username} found', 'data': stats},

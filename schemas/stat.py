@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List, Dict, Any, Optional
 from bson import ObjectId
 
 
@@ -9,25 +9,8 @@ class Difficulty(BaseModel):
     beatsPercentage: Optional[float] = Field(default=None)
 
 
-class Badge(BaseModel):
-    name: str
-
-
-class ContestRanking(BaseModel):
-    attendedContestsCount: int
-    rating: float
-    globalRanking: int
-    totalParticipants: int
-    topPercentage: float
-    badge: Badge
-
-
-class LanguageStats(BaseModel):
-    languageName: str
-    problemsSolved: int
-
-
 class Stat(BaseModel):
+    username: str
     name: str
     rank: int
     avatar: str
@@ -36,5 +19,5 @@ class Stat(BaseModel):
     easy: Difficulty
     medium: Difficulty
     hard: Difficulty
-    contestRanking: Optional[ContestRanking] = Field(default=None)
-    languageStats: List[LanguageStats]
+    contestRanking: Optional[Dict[str, Any]] = Field(default=None)
+    languageStats: List[Dict[str, Any]]

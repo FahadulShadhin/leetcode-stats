@@ -1,13 +1,13 @@
 from .variables import Variables
-from motor.motor_asyncio import AsyncIOMotorClient
+from pymongo import MongoClient
 
 
 class DBConfig:
     def __init__(self):
         self.variables = Variables()
-        self.client = AsyncIOMotorClient(self.variables.mongo_uri)
+        self.client = MongoClient(self.variables.mongo_uri)
         self.db = self.client[self.variables.db_name]
-        self.collection = self.client[self.variables.collection_name]
+        self.collection = self.db[self.variables.collection_name]
 
     def connect_db(self):
         try:
