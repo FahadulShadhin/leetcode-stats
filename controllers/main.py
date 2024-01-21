@@ -11,7 +11,7 @@ def root_controller():
     return JSONResponse(
         content={'status': 'Success',
                  'message': 'Put your LeetCode username in the url to grab the stats.',
-                 'example': 'https://leetcode-stats-api-url.com/<YOUR_LEETCODE_USERNAME>'},
+                 'example': 'https://leetcode-stats-api.onrender.com/<YOUR_LEETCODE_USERNAME>'},
         status_code=200,
     )
 
