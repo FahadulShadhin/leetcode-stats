@@ -53,7 +53,7 @@ class StatsService:
 
         existing_stat = collection.find_one({'username': self.username})
         if existing_stat:
-            print(f'{self.username} already exists in db')
+            print(f'{self.username} already exists in db!')
             return
 
         new_stats = Stat(
@@ -89,5 +89,6 @@ class StatsService:
         try:
             new_stats_dict = new_stats.dict()
             result = collection.insert_one(new_stats_dict)
+            print(f'User stats for {self.username} saved to db!')
         except Exception as e:
             print(e)
