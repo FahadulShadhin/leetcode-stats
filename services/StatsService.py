@@ -1,10 +1,12 @@
 from schemas.stat import Stat, Difficulty
 from config.db import DBConfig
+from config.logger import logger_config
 
 
 class StatsService:
     def __init__(self, leetcode_username: str, problem_solved_stats: dict, language_stats: dict, profile_stats: dict, contest_ranking_stats: dict):
         self.db_config = DBConfig()
+        self.logger = logger_config()
         self.username = leetcode_username
         self.problem_solved_stats = problem_solved_stats['data']
         self.language_stats = language_stats['data']
@@ -53,7 +55,7 @@ class StatsService:
 
         existing_stat = collection.find_one({'username': self.username})
         if existing_stat:
-            print(f'{self.username} already exists in db!')
+            self.logger.info(f'{self.username} already exists in db!')
             return
 
         new_stats = Stat(
@@ -89,6 +91,6 @@ class StatsService:
         try:
             new_stats_dict = new_stats.dict()
             result = collection.insert_one(new_stats_dict)
-            print(f'User stats for {self.username} saved to db!')
+            self.logger.info(f'User stats for {self.username} saved to db!')
         except Exception as e:
             print(e)
