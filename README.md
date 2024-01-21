@@ -14,3 +14,5 @@ Setup:
 - Install dependencies: `pip3 install -r requirements.txt`
 - Run dev server: `uvicorn main:app --reload --host {HOST} --port {PORT}`
 - Hit the endpoint to get stats: `http://{HOST}:{PORT}/{USERNAME}`
+
+[Test with the API Documentation](https://leetcode-stats-api.onrender.com/docs)
