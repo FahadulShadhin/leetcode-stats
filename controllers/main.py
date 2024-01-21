@@ -2,6 +2,9 @@ from fastapi.responses import JSONResponse
 from services.LeetCodeService import LeetCodeGraphQLClient
 from services.StatsService import StatsService
 from exceptions import GraphqlException
+from config.logger import logger_config
+
+logger = logger_config()
 
 
 def root_controller():
@@ -26,7 +29,8 @@ def get_user_stats_controller(leetcode_username: str):
 
         if not problem_solved_stats or not language_stats or not profile_stats or not contest_ranking_stats:
             raise GraphqlException('GraphQL response if None.')
-    except GraphqlException:
+    except GraphqlException as e:
+        logger.error(e)
         return JSONResponse(
             content={'status': 'Internal Server Error',
                      'message': 'Something went wrong while fetching your stats!'},
