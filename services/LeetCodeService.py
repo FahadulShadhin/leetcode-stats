@@ -11,10 +11,10 @@ class LeetCodeGraphQLClient:
         self.variables = self.config.variables()
         self.url = self.variables['leetCodeGraphqlEndpoint']
 
-    def send_graphql_request(self, query: str, variables: object):
+    def send_graphql_request(self, query: str, variables: dict):
         return requests.post(self.url, json={'query': query, 'variables': variables})
 
-    def problems_solved(self, leetcode_username: str):
+    def problems_solved(self, leetcode_username: str) -> dict:
         query = '''
         query userProblemsSolved($username: String!) {
             allQuestionsCount {
@@ -43,7 +43,7 @@ class LeetCodeGraphQLClient:
         except requests.exceptions.JSONDecodeError:
             return None
 
-    def language_stats(self, leetcode_username: str):
+    def language_stats(self, leetcode_username: str) -> dict:
         query = '''
         query languageStats($username: String!) {
             matchedUser(username: $username) {
@@ -62,7 +62,7 @@ class LeetCodeGraphQLClient:
         except requests.exceptions.JSONDecodeError:
             return None
 
-    def public_profile(self, leetcode_username: str):
+    def public_profile(self, leetcode_username: str) -> dict:
         query = '''
         query userPublicProfile($username: String!) {
             matchedUser(username: $username) {
@@ -82,7 +82,7 @@ class LeetCodeGraphQLClient:
         except requests.exceptions.JSONDecodeError:
             return None
 
-    def contest_ranking(self, leetcode_username: str):
+    def contest_ranking(self, leetcode_username: str) -> dict:
         query = '''
         query userContestRankingInfo($username: String!) {
             userContestRanking(username: $username) {

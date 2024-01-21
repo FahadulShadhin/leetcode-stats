@@ -4,6 +4,15 @@ from services.StatsService import StatsService
 from exceptions import GraphqlException
 
 
+def root_controller():
+    return JSONResponse(
+        content={'status': 'Success',
+                 'message': 'Put your LeetCode username in the url to grab the stats.',
+                 'example': 'https://leetcode-stats-api-url.com/<YOUR_LEETCODE_USERNAME>'},
+        status_code=200,
+    )
+
+
 def get_user_stats_controller(leetcode_username: str):
     leetcoce_client = LeetCodeGraphQLClient()
 

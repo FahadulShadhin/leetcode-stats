@@ -1,12 +1,12 @@
 from fastapi import APIRouter
-from controllers.main import get_user_stats_controller
+from controllers.main import get_user_stats_controller, root_controller
 
 router = APIRouter()
 
 
 @router.get('/')
 def root():
-    return {'message': 'Hello LeetCode Stats!'}
+    return root_controller()
 
 
 @router.get('/{leetcode_username}')

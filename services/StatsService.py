@@ -6,7 +6,7 @@ class StatsService:
         self.profile_stats = profile_stats['data']
         self.contest_ranking_stats = contest_ranking_stats['data']
 
-    def construct_user_stats(self):
+    def construct_user_stats(self) -> dict:
 
         if (
             not self.problem_solved_stats['matchedUser'] or
