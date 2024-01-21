@@ -93,4 +93,4 @@ class StatsService:
             result = collection.insert_one(new_stats_dict)
             self.logger.info(f'User stats for {self.username} saved to db!')
         except Exception as e:
-            print(e)
+            self.logger.error(e)
