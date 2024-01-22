@@ -2,9 +2,11 @@
 
 API to fetch your LeetCode profile stats
 
+[![python](https://img.shields.io/badge/Python-3.10+-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
+
 ## Setup:
 
-- Built with `Python 3.10.7`
 - Clone the repository
 - `cd` to root folder
 - Create a virtual environment: `python3 -m venv {ENV_NAME}`
@@ -12,8 +14,19 @@ API to fetch your LeetCode profile stats
   - Windows: `.\{ENV_NAME}\Scripts\activate`
   - Unix: `source /{ENV_NAME}/bin/activate`
 - Install dependencies: `pip3 install -r requirements.txt`
-- Run dev server: `uvicorn main:app --reload --host {HOST} --port {PORT}`
-- Hit the endpoint to get stats: `http://{HOST}:{PORT}/{USERNAME}`
+- Run dev server:
+
+```bash
+$ uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [24808] using WatchFiles
+INFO:     Started server process [27200]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+- Hit the endpoint to get stats: `http://127.0.0.1:8000/{USERNAME}`
 
 ## How to use:
 
