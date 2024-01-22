@@ -17,6 +17,27 @@ API to fetch your LeetCode profile stats
 
 ### How to use:
 
-- `https://leetcode-stats-api.onrender.com/<your_leetcode_username>`
+- URL: `https://leetcode-stats-api.onrender.com/<your_leetcode_username>`
 
-### [Test with the API Documentation](https://leetcode-stats-api.onrender.com/docs)
+#### Example:
+
+- [With the API Docs](https://leetcode-stats-api.onrender.com/docs)
+
+- Python
+
+```python
+import requests
+
+response = requests.get('https://leetcode-stats-api.onrender.com/shadhin17')
+stats = response.json()
+print(stats['data'])
+```
+
+- JavaSceipt
+
+```js
+fetch('https://leetcode-stats-api.onrender.com/shadhin17')
+	.then((response) => response.json())
+	.then((stats) => console.log(stats.data))
+	.catch((error) => console.error(error));
+```
