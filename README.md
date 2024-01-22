@@ -16,7 +16,7 @@ API to fetch your LeetCode profile stats
 - Install dependencies: `pip3 install -r requirements.txt`
 - Run dev server:
 
-```bash
+```console
 $ uvicorn main:app --reload --host 127.0.0.1 --port 8000
 
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
