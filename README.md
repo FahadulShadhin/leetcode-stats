@@ -18,10 +18,9 @@ API to fetch your LeetCode profile stats
 ### How to use:
 
 - URL: `https://leetcode-stats-api.onrender.com/<your_leetcode_username>`
+- [Test with API Docs](https://leetcode-stats-api.onrender.com/docs)
 
 #### Example:
-
-- [With the API Docs](https://leetcode-stats-api.onrender.com/docs)
 
 - Python
 
