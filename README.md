@@ -22,7 +22,7 @@ API to fetch your LeetCode profile stats
 
 ### Example:
 
-- Python
+- python3
 
 ```python
 import requests
@@ -32,11 +32,17 @@ stats = response.json()
 print(stats['data'])
 ```
 
-- JavaScript
+- js
 
-```javascript
+```js
 fetch('https://leetcode-stats-api.onrender.com/shadhin17')
 	.then((response) => response.json())
 	.then((stats) => console.log(stats.data))
 	.catch((error) => console.error(error));
+```
+
+- curl
+
+```bash
+curl https://leetcode-stats-api.onrender.com/shadhin17
 ```
