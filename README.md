@@ -32,9 +32,9 @@ stats = response.json()
 print(stats['data'])
 ```
 
-- JavaSceipt
+- JavaScript
 
-```js
+```javascript
 fetch('https://leetcode-stats-api.onrender.com/shadhin17')
 	.then((response) => response.json())
 	.then((stats) => console.log(stats.data))
