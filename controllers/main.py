@@ -2,7 +2,7 @@ from fastapi.responses import JSONResponse
 from services.LeetCodeService import LeetCodeGraphQLClient
 from services.StatsService import StatsService
 from services.DBService import DBService
-from exceptions import GraphqlException
+from config.exceptions import GraphqlException
 from config.logger import logger_config
 from config.responder import response
 
