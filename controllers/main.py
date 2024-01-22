@@ -48,7 +48,7 @@ def get_user_stats_controller(leetcode_username: str):
             not profile_stats or
             not contest_ranking_stats
         ):
-            raise GraphqlException('GraphQL response if None.')
+            raise GraphqlException('GraphQL response is None.')
     except GraphqlException as e:
         logger.error(e)
         return response(500, 'Internal Server Error', 'Something went wrong while fetching your stats!')
