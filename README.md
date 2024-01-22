@@ -2,7 +2,7 @@
 
 API to fetch your LeetCode profile stats
 
-### Setup:
+## Setup:
 
 - Built with `Python 3.10.7`
 - Clone the repository
@@ -15,12 +15,12 @@ API to fetch your LeetCode profile stats
 - Run dev server: `uvicorn main:app --reload --host {HOST} --port {PORT}`
 - Hit the endpoint to get stats: `http://{HOST}:{PORT}/{USERNAME}`
 
-### How to use:
+## How to use:
 
 - URL: `https://leetcode-stats-api.onrender.com/<your_leetcode_username>`
 - [Test with API Docs](https://leetcode-stats-api.onrender.com/docs)
 
-#### Example:
+### Example:
 
 - Python
 
