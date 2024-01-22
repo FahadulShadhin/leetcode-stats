@@ -27,6 +27,6 @@ class DBService:
             return stats
         return None
 
-    def stats_save_to_db(self, new_stats):
+    def save_stats_to_db(self, new_stats):
         new_stats_dict = new_stats.dict()
         result = self.collection.insert_one(new_stats_dict)

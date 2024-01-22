@@ -59,11 +59,12 @@ def get_user_stats_controller(leetcode_username: str):
     stats = stats_service.construct_user_stats()
 
     if not stats:
+        logger.info(f'{leetcode_username} is invalid user')
         return response(404, 'Not found', f"{leetcode_username} doesn't exist!")
 
     new_stats = stats_service.user_stats_to_save()
     try:
-        db_operations_service.stats_save_to_db(new_stats)
+        db_operations_service.save_stats_to_db(new_stats)
         logger.info(f'Stats for {leetcode_username} saved to db!')
     except Exception as e:
         logger.error(e)
