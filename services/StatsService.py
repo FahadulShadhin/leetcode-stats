@@ -6,6 +6,7 @@ from config.logger import logger_config
 class StatsService:
     def __init__(self, leetcode_username: str, problem_solved_stats: dict, language_stats: dict, profile_stats: dict, contest_ranking_stats: dict):
         self.db_config = DBConfig()
+        self.collection = self.db_config.collection
         self.logger = logger_config()
         self.username = leetcode_username
         self.problem_solved_stats = problem_solved_stats['data']
@@ -50,13 +51,7 @@ class StatsService:
 
         return user_stats
 
-    def save_user_stats(self):
-        collection = self.db_config.collection
-
-        existing_stat = collection.find_one({'username': self.username})
-        if existing_stat:
-            self.logger.info(f'{self.username} already exists in db!')
-            return
+    def user_stats_to_save(self):
 
         new_stats = Stat(
             username=self.username,
@@ -88,9 +83,4 @@ class StatsService:
             languageStats=self.language_stats['matchedUser']['languageProblemCount'],
         )
 
-        try:
-            new_stats_dict = new_stats.dict()
-            result = collection.insert_one(new_stats_dict)
-            self.logger.info(f'User stats for {self.username} saved to db!')
-        except Exception as e:
-            self.logger.error(e)
+        return new_stats
