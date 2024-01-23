@@ -20,5 +20,3 @@ services:
       - .env
     depends_on:
       - mongo_db
-
-
