@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Dict, Any, Optional
+from typing import Any, Optional
 
 
 class Difficulty(BaseModel):
@@ -18,5 +18,5 @@ class Stat(BaseModel):
     easy: Difficulty
     medium: Difficulty
     hard: Difficulty
-    contestRanking: Optional[Dict[str, Any]] = Field(default=None)
-    languageStats: List[Dict[str, Any]]
+    contestRanking: Optional[dict[str, Any]] = Field(default=None)
+    languageStats: list[dict[str, Any]]

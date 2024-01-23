@@ -51,7 +51,7 @@ class StatsService:
 
         return user_stats
 
-    def user_stats_to_save(self):
+    def user_stats_to_save(self) -> Stat:
 
         new_stats = Stat(
             username=self.username,

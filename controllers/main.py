@@ -19,13 +19,13 @@ def root_controller():
 def get_user_stats_controller(leetcode_username: str):
 
     db_operations_service = DBService(leetcode_username)
-    existing_user_id = db_operations_service.user_esists_in_db()
+    existing_user_id = db_operations_service.user_exists_in_db()
 
-    if existing_user_id:
+    if existing_user_id is not None:
         logger.info(
             f'Stats for user {leetcode_username} already exists in db!')
         try:
-            stats = db_operations_service.get_stats_from_db()
+            stats = db_operations_service.get_stats_from_db(existing_user_id)
             logger.info('Stats fetched successfully!')
             return response(200, 'Success', f'{leetcode_username} found', stats)
         except Exception as e:
