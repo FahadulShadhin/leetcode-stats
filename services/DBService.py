@@ -9,7 +9,9 @@ class DBService:
         self.username = leetcode_username
 
     def user_exists_in_db(self) -> ObjectId:
-        existing_user = self.collection.find_one({'username': self.username})
+        existing_user = self.collection.find_one(
+            {'username': self.username}, {'_id': 1})
+
         if existing_user:
             return existing_user['_id']
         return None
