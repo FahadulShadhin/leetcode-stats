@@ -1,4 +1,4 @@
-from schemas.stat import Stat, Difficulty
+from schemas.main import Stat, Difficulty
 from config.db import DBConfig
 from config.logger import logger_config
 
