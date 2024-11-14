@@ -2,6 +2,7 @@
 
 API to fetch your LeetCode profile stats
 
+[![Render](https://img.shields.io/badge/deployed%20on-Render-blue?logo=render)](https://leetcode-stats-api.onrender.com)
 [![python](https://img.shields.io/badge/Python-3.10+-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
 
